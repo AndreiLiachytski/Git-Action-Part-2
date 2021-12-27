@@ -52,13 +52,13 @@ jobs:
 
           #cd ${{env.OUT_FOLDER_NAME}}
           ls -la
-          cd ${{env.OUT_FOLDER_NAME}}
-          ls -la
+          #cd ${{env.OUT_FOLDER_NAME}}
+          #ls -la
 
       - name: "Put ZIP file"
         run: |
-          rsync -a ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip  ${{env.ABSOLUTE_PATH}}/out/
-          rm -r ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip
+          #rsync -a ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip  ${{env.ABSOLUTE_PATH}}/out/
+          #rm -r ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip
 
       - name: "Push converted data"
         run: |
