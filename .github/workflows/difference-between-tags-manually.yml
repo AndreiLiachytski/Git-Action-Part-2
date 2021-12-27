@@ -52,7 +52,7 @@ jobs:
 
           #cd ${{env.OUT_FOLDER_NAME}}
           ls -la
-          cd ${{env.OUT_FOLDER_NAME}}.zip
+          cd ${{env.OUT_FOLDER_NAME}}
           ls -la
 
       - name: "Put ZIP file"
