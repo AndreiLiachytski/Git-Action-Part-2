@@ -12,7 +12,8 @@ on:
 
 env:
   FLOW_STARTED_ON_BRANCH: ${GITHUB_REF##*/}
-  OUT_FOLDER_NAME: ${{github.event.inputs.first_tag}}__VS__${{github.event.inputs.second_tag}}
+  OUT_FOLDER_NAME: ${GITHUB_WORKSPACE}
+  #OUT_FOLDER_NAME: ${{github.event.inputs.first_tag}}__VS__${{github.event.inputs.second_tag}}
   ABSOLUTE_PATH: ${GITHUB_WORKSPACE}
 
 jobs:
@@ -57,7 +58,7 @@ jobs:
 
       - name: "Put ZIP file"
         run: |
-          rsync -a ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}} ${{env.ABSOLUTE_PATH}}/out/
+          rsync -a ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip  ${{env.ABSOLUTE_PATH}}/out/
           rm -r ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip
 
       - name: "Push converted data"
