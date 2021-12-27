@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <description>B2BFooterV2</description>
+    <isExposed>true</isExposed>
+    <masterLabel>B2BFooterV2</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property label="Facebook Link" name="facebookLink" type="String" default="https://www.facebook.com/"/>
+            <property label="Linkedin Link" name="linkedinLink" type="String" default="https://www.linkedin.com/"/>
+            <property label="Instagram Link" name="instagramLink" type="String" default="https://www.instagram.com/"/>
+            <property label="Company Link" name="companyLink" type="String" default="https://guestcheckout-developer-edition.ap24.force.com/GuestCheckout/s/"/>
+            <property label="Company Address" name="companyAddress" type="String" default="289-219 S Riverside Plaza, Chicago, IL 60606, USA"/>
+            <property label="Copyright Text" name="copyrightText" type="String" default="© YYYY Forte Group All rights reserved"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

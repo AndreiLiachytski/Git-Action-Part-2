@@ -1,0 +1,88 @@
+<!--
+ - Created by yurybialkevich on 19.10.21.
+ -->
+
+<!-- B2BFooterV2 -->
+<template>
+    <footer class="footer-section">
+        <div class="upper-footer-wrapper">
+            <div class="footer-logo-block">
+                <a href={companyLink} target="_blank">
+                    <img class="logo" src={socialIcons.company} alt="company-icon"/>
+                </a>
+            </div>
+
+            <div class="footer-location-block">
+                <div class="adress-block">
+                    <img src={socialIcons.phone} alt="phone-icon">
+                    <div class="company-address">{companyAddress}</div>
+                </div>
+
+                <div class="phone-block">
+                    <img src={socialIcons.phone} alt="phone-icon">
+                    <a href="tel:13127574944" class="phone-number">+1 312-757-4944</a>
+                </div>
+
+                <div class="social-links-block">
+                    <a href={facebookLink} target="_blank">
+                        <img class="facebook-logo" src={socialIcons.facebook} alt="facebook-icon"/>
+                    </a>
+                    <a href={instagramLink} target="_blank">
+                        <img class="instagram-logo" src={socialIcons.instagram} alt="instagram-icon"/>
+                    </a>
+                    <a href={linkedinLink} target="_blank">
+                        <img class="linkedin-logo" src={socialIcons.linkedIn} alt="linkedIn-icon"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-policy-block">
+                <template for:each={navigationMenuItems} for:item="item">
+                    <div key={item.Id} class="footer-nav-item" >
+                        <a href={item.Target}>
+                            {item.Label}
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="lower-footer-wrapper">
+            © 2021 Forte Group All rights reserved
+        </div>
+
+
+
+<!--        <div class="location">-->
+<!--            <img src={socialIcons.pin} alt="location-icon">-->
+<!--        </div>-->
+<!--        <div class="company-address">{companyAddress}</div>-->
+<!--        <div class="phone-logo">-->
+<!--            <img src={socialIcons.phone} alt="phone-icon">-->
+<!--        </div>-->
+<!--        <a href="tel:13127574944" class="phone-number">+1 312-757-4944</a>-->
+<!--        <a href={facebookLink} target="_blank">-->
+<!--            <img class="facebook-logo" src={socialIcons.facebook} alt="facebook-icon"/>-->
+<!--        </a>-->
+<!--        <a href={instagramLink} target="_blank">-->
+<!--            <img class="instagram-logo" src={socialIcons.instagram} alt="instagram-icon"/>-->
+<!--        </a>-->
+<!--        <a href={linkedinLink} target="_blank">-->
+<!--            <img class="linkedin-logo" src={socialIcons.linkedIn} alt="linkedIn-icon"/>-->
+<!--        </a>-->
+<!--        <a href={companyLink} target="_blank">-->
+<!--            <img class="logo" src={socialIcons.company} alt="company-icon"/>-->
+<!--        </a>-->
+<!--        <div class="line">-->
+<!--            <img src={line} alt="line"/>-->
+<!--        </div>-->
+<!--        <div class="copyright-text">{getCopyrightLabel}</div>-->
+<!--        <template for:each={navigationMenuItems} for:item="item">-->
+<!--            <div key={item.Id} class="sample" >-->
+<!--                <a href={item.Target}>-->
+<!--                    {item.Label}-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </template>-->
+    </footer>
+</template>

@@ -1,0 +1,192 @@
+/**
+ * Created by yurybialkevich on 19.10.21.
+ */
+.footer-section{
+    /*position: absolute;*/
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 4rem 91px;
+    background: #11263C;
+    width: 1443px;
+    height: 379px;
+}
+.logo{
+    /*position: absolute;*/
+    width: 287px;
+    height: 100px;
+    left: 90px;
+    right: 1065px;
+    top: 51px;
+    bottom: 228px;
+}
+.location{
+    width: 12px;
+    height: 18px;
+}
+.company-address{
+    width: 213px;
+    height: 36px;
+    font-family: Helvetica, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+
+    /* White */
+    color: #FFFFFF;
+}
+.phone-logo{
+    /*position: absolute;*/
+    width: 16px;
+    height: 16px;
+    left: 778px;
+    right: 652px;
+    top: 140px;
+    bottom: 223px;
+}
+.phone-number{
+    /*position: absolute;*/
+    width: 123px;
+    height: 18px;
+    left: 810px;
+    right: 509px;
+    top: 138px;
+    bottom: 223px;
+
+    font-family: Helvetica, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+.facebook-logo{
+    /*position: absolute;*/
+    left: 775px;
+    right: 642px;
+    top: 187px;
+    bottom: 646px;
+}
+.instagram-logo{
+    /*position: absolute;*/
+    left: 821px;
+    right: 596px;
+    top: 187px;
+    bottom: 166px;
+}
+.linkedin-logo{
+    /*position: absolute;*/
+    left: 867px;
+    right: 550px;
+    top: 187px;
+    bottom: 166px;
+}
+.line{
+    /*position: absolute;*/
+    left: 91px;
+    right: 93px;
+    top: 287px;
+    bottom: 92px;
+    width: 1259px;
+    height: 0;
+    opacity: 0.3;
+}
+.copyright-text{
+    /*position: absolute;*/
+    width: 241px;
+    height: 16px;
+    left: 90px;
+    right: 1111px;
+    top: 305px;
+    bottom: 58px;
+}
+.shipping-delivery{
+    /*position: absolute;*/
+    width: 241px;
+    height: 16px;
+    left: 90px;
+    right: 1111px;
+    top: 305px;
+    bottom: 58px;
+}
+
+.return-policy{
+    /*position: absolute;*/
+    width: 96px;
+    height: 18px;
+    left: 1099px;
+    right: 248px;
+    top: 117px;
+    bottom: 243px;
+}
+.terms-condition{
+    /*position: absolute;*/
+    width: 140px;
+    height: 18px;
+    left: 1099px;
+    right: 204px;
+    top: 166px;
+    bottom: 195px;
+}
+
+.contact-us{
+    /*position: absolute;*/
+    width: 81px;
+    height: 18px;
+    left: 1099px;
+    right: 263px;
+    top: 214px;
+    bottom: 147px;
+}
+.upper-footer-wrapper {
+    display: flex;
+    border-bottom: 1px solid #FFFFFF;
+    padding-bottom: 74px;
+}
+
+.footer-logo-block {
+    height: 100px;
+    width: 50%;
+}
+
+.adress-block, .social-links-block {
+    display: flex;
+}
+
+.adress-block img, .phone-block img {
+    height: 16px;
+    margin-right: 10px;
+}
+
+.adress-block, .phone-block {
+    margin-bottom: 31px;
+}
+
+.social-links-block a {
+    margin-right: 20px;
+}
+.footer-location-block {
+    width: 25%;
+}
+
+.footer-policy-block {
+    width: 25%;
+    margin-left: 75px;
+}
+
+.footer-nav-item {
+    margin-bottom: 30px;
+}
+
+.footer-nav-item a {
+    color: #FFFFFF;
+}
+.lower-footer-wrapper{
+    margin-top: 18px;
+    font-family: Helvetica, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
