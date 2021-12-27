@@ -57,8 +57,8 @@ jobs:
 
       - name: "Put ZIP file"
         run: |
-          #git config --global user.email "${{secrets.USER_EMAIL}}"
-          #git config --global user.name "${{secrets.USER_NAME}}"
+          git config --global user.email "${{secrets.USER_EMAIL}}"
+          git config --global user.name "${{secrets.USER_NAME}}"
           #rsync -a ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip  ${{env.ABSOLUTE_PATH}}/out/
           #rm -r ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip
 
