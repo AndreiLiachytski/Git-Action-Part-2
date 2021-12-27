@@ -48,24 +48,13 @@ jobs:
         run: |
           cd out/${{env.OUT_FOLDER_NAME}}
           zip -r ${{env.OUT_FOLDER_NAME}}.zip unpackaged
-
-
-          #cd ${{env.OUT_FOLDER_NAME}}
-          ls -la
-          #cd ${{env.OUT_FOLDER_NAME}}
-          #ls -la
-
-      - name: "Put ZIP file"
-        run: |
-          git config --global user.email "${{secrets.USER_EMAIL}}"
-          git config --global user.name "${{secrets.USER_NAME}}"
           rsync -a ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip  ${{env.ABSOLUTE_PATH}}/out/
           rm -r ${{env.ABSOLUTE_PATH}}/out/${{env.OUT_FOLDER_NAME}}/${{env.OUT_FOLDER_NAME}}.zip
 
       - name: "Push converted data"
         run: |
-          #git config --global user.email "${{secrets.USER_EMAIL}}"
-          #git config --global user.name "${{secrets.USER_NAME}}"
+          git config --global user.email "${{secrets.USER_EMAIL}}"
+          git config --global user.name "${{secrets.USER_NAME}}"
           git add ${{env.ABSOLUTE_PATH}}/out
           git commit -m "`date`"
           git push origin HEAD:${{env.FLOW_STARTED_ON_BRANCH}}
