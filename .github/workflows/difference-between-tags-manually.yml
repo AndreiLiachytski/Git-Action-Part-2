@@ -12,8 +12,7 @@ on:
 
 env:
   FLOW_STARTED_ON_BRANCH: ${GITHUB_REF##*/}
-  OUT_FOLDER_NAME: ${GITHUB_WORKSPACE}
-  #OUT_FOLDER_NAME: ${{github.event.inputs.first_tag}}__VS__${{github.event.inputs.second_tag}}
+  OUT_FOLDER_NAME: ${{github.event.inputs.first_tag}}__VS__${{github.event.inputs.second_tag}}
   ABSOLUTE_PATH: ${GITHUB_WORKSPACE}
 
 jobs:
