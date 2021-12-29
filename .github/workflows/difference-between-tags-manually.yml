@@ -39,6 +39,11 @@ jobs:
           rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
           cat diffFile.txt
 
+      - name: run loop
+        env:
+         FILES: diffFile.txt
+        run: for f in ${{env.FILES}}; do [echo f]; done
+
       - name: "Convert to Metadata API format"
         run: |
           PATH=~/sfdx/bin:$PATH
