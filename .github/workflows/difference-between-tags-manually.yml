@@ -42,7 +42,7 @@ jobs:
       - name: run loop
         env:
          FILES: diffFile.txt
-        run: for f in ${{env.FILES}}; do [echo f]; done
+        run: for f in ${{env.FILES}}; do echo ${f}; done
 
       - name: "Convert to Metadata API format"
         run: |
