@@ -37,12 +37,11 @@ jobs:
         run: |
           git diff ${{github.event.inputs.first_tag}} ${{github.event.inputs.second_tag}} --name-only > diffFile.txt
           rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
-          cat diffFile.txt
 
       - name: run loop
         run: for path in diffFile.txt
              do
-               echo $path
+                 echo $path
              done
 
       - name: "Convert to Metadata API format"
