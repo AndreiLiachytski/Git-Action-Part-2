@@ -40,9 +40,9 @@ jobs:
           cat diffFile.txt
 
       - name: run loop
-        run: for path in diffFile.txt;
+        run: for path in diffFile.txt
              do
-               echo ${path};
+               echo $path
              done
 
       - name: "Convert to Metadata API format"
