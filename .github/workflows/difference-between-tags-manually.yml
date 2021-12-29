@@ -41,7 +41,7 @@ jobs:
       - name: run loop
         run: for path in first second third fourth fifth
           do
-          echo "$path"
+          echo "${ path }"
           done
 
       - name: "Convert to Metadata API format"
