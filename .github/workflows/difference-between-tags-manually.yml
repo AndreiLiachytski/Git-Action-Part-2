@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-    
+
       - name: "Get diff file between tags"
         run: |
           git diff ${{github.event.inputs.first_tag}} ${{github.event.inputs.second_tag}} --name-only > diffFile.txt
@@ -40,9 +40,9 @@ jobs:
 
       - name: run loop
         run: for path in first second third fourth fifth
-             do
-                 echo ${path}
-             done
+          do
+          echo "$path"
+          done
 
       - name: "Convert to Metadata API format"
         run: |
