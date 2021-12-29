@@ -44,6 +44,7 @@ jobs:
           for var in $(cat diffFile.txt)
           do
           echo " $var"
+          echo " ********************************************************************** "
           done
 
       - name: "Convert to Metadata API format"
