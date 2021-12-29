@@ -40,9 +40,10 @@ jobs:
           cat diffFile.txt
 
       - name: run loop
-        env:
-         FILES: diffFile.txt
-        run: for f in ${{env.FILES}}; do echo ${f}; done
+        run: for path in diffFile.txt;
+             do
+               echo ${path};
+             done
 
       - name: "Convert to Metadata API format"
         run: |
