@@ -40,9 +40,9 @@ jobs:
 
       - name: run loop
         shell: bash
-        run: for path in first second third fourth fifth
+        run: for var in first second third fourth fifth
           do
-          echo "${ path }"
+          echo " $var"
           done
 
       - name: "Convert to Metadata API format"
