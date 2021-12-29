@@ -41,7 +41,7 @@ jobs:
       - name: "//////////////////////////////"
         shell: bash
         run: |
-          for var in diffFile.txt
+          for var in $(cat diffFile.txt)
           do
           echo " $var"
           done
