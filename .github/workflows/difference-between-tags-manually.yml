@@ -31,7 +31,7 @@ jobs:
       - name: "Get diff file between tags"
         run: |
           git diff ${{github.event.inputs.first_tag}} ${{github.event.inputs.second_tag}} --name-only > diffFile.txt
-          rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
+          #rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
 
       - name: "Get Missing Classes"
         shell: bash
@@ -43,7 +43,7 @@ jobs:
                 IFS='.'
                 read -ra className <<< "$var"
                 echo " $var"
-                echo $(find -name "$className.ccls-meta.xml" -type f)
+                echo $(find -name "$className.cls-meta.xml" -type f)
                 #echo "find -name "$className.cls-meta.xml" -or -name "*.css" -type f"
                 echo " $className"
             else
