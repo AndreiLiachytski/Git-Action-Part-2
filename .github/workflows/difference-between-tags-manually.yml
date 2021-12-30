@@ -14,12 +14,13 @@ env:
   FLOW_STARTED_ON_BRANCH: ${GITHUB_REF##*/}
   OUT_FOLDER_NAME: ${{github.event.inputs.first_tag}}__VS__${{github.event.inputs.second_tag}}
   ABSOLUTE_PATH: ${GITHUB_WORKSPACE}
+  CLS: "cls"
+  CLS-META.XML: "cls-meta.xml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
 
 
       - name: "Checkout source code"
@@ -32,34 +33,30 @@ jobs:
           git diff ${{github.event.inputs.first_tag}} ${{github.event.inputs.second_tag}} --name-only > diffFile.txt
           rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
 
-      - name: "//////////////////////////////"
+      - name: "Get Missing Classes"
         shell: bash
         run: |
-          #for var in $(cat diffFile.txt)
           for var in $(awk -F/ '{print $5}' diffFile.txt)
           do
-          #endWords=$(echo $var | tr "/" "\n")
-
-
-
-          #echo "My name is Tom" | awk '{$4="Adam"; print $0}'
-
-
           echo " $var"
           echo " ********************************************************************** "
           done
 
-          #endWords=($(awk -F/ '{print $5}' diffFile.txt))
-          #echo " $endWords"
-
-          #awk -F/ '{print $5}' diffFile.txt
+      - name: "Get Missing LWC"
+        shell: bash
+        run: |
+          for var in $(awk -F/ '{print $6}' diffFile.txt)
+          do
+          echo " $var"
+          echo "#######################################################################"
+          done
 
       - name: "Install Salesforce CLI"
         run: |
-            #wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
-            mkdir ~/sfdx
-            tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
-            export PATH=~/sfdx/bin:$PATH
+          #wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+          mkdir ~/sfdx
+          tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+          export PATH=~/sfdx/bin:$PATH
 
       - name: "Convert to Metadata API format"
         run: |
