@@ -37,7 +37,8 @@ jobs:
         run: |
           for var in $(cat diffFile.txt)
           do
-          endWords=$(echo $var | tr "/" "\n")
+          #endWords=$(echo $var | tr "/" "\n")
+          endWords=($(awk -F/ '{print $5}' diffFile.txt))
           echo " $endWords[4]"
 
 
@@ -48,11 +49,11 @@ jobs:
           echo " ********************************************************************** "
           done
 
-          awk -F/ '{print $5}' diffFile.txt
+          #awk -F/ '{print $5}' diffFile.txt
 
       - name: "Install Salesforce CLI"
         run: |
-            wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+            #wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
             mkdir ~/sfdx
             tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
             export PATH=~/sfdx/bin:$PATH
