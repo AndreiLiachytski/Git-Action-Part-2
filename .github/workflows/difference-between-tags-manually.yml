@@ -39,10 +39,10 @@ jobs:
           for var in $(awk -F/ '{print $5}' diffFile.txt)
           do
           if [[ "$var" == *.${env.CLS} ]]
-          then
-              echo " $var"
-          else
-              echo "false"
+            then
+                echo " $var"
+            else
+                echo "false"
           echo " ********************************************************************** "
           done
 
