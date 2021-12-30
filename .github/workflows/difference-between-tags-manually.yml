@@ -40,7 +40,10 @@ jobs:
           do
           if [[ "$var" == *.cls ]]
             then
+                className = $(awk -F. '{print $0}' $var)
                 echo " $var"
+                #echo "find -name "*.js" -or -name "*.css" -type f"
+                echo " $className"
             else
                 echo "false"
           fi
