@@ -47,8 +47,7 @@ jobs:
           echo " ********************************************************************** "
           done
 
-          echo "The user logged in is:"
-          whoami
+          awk -F/ '{print $4}' diffFile.txt
 
 
 
