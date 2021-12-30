@@ -47,6 +47,13 @@ jobs:
           echo " ********************************************************************** "
           done
 
+          echo "The user logged in is:"
+          whoami
+
+
+
+
+
       - name: "Convert to Metadata API format"
         run: |
           PATH=~/sfdx/bin:$PATH
