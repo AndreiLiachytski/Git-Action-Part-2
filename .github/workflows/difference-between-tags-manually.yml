@@ -43,7 +43,7 @@ jobs:
         run: |
           for var in $(cat diffFile.txt)
           do
-          endWords = `awk -F/ '{endWords=$5}' diffFile.txt`
+          endWords = `awk -F/ '{print$5}' diffFile.txt`
           echo " $endWords"
 
 
@@ -54,7 +54,7 @@ jobs:
           echo " ********************************************************************** "
           done
 
-          awk -F/ '{print $4}' diffFile.txt
+          awk -F/ '{print $5}' diffFile.txt
 
 
 
