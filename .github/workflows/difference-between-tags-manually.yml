@@ -43,7 +43,7 @@ jobs:
                 IFS='.'
                 read -ra className <<< "$var"
                 echo " $var"
-                echo $(find -name "$className.cls-meta.xml" -type f)
+                echo $(find -name "$className.ccls-meta.xml" -type f)
                 #echo "find -name "$className.cls-meta.xml" -or -name "*.css" -type f"
                 echo " $className"
             else
