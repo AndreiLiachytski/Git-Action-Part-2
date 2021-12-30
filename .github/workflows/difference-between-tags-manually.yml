@@ -38,7 +38,7 @@ jobs:
         run: |
           for var in $(awk -F/ '{print $5}' diffFile.txt)
           do
-          if [[ "$var" == *.cls} ]]
+          if [[ "$var" == *cls} ]]
             then
                 echo " $var"
             else
