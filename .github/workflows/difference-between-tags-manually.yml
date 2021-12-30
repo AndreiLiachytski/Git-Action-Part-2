@@ -38,8 +38,7 @@ jobs:
           for var in $(cat diffFile.txt)
           do
           #endWords=$(echo $var | tr "/" "\n")
-          endWords=($(awk -F/ '{print $5}' diffFile.txt))
-          echo " $endWords[4]"
+
 
 
           #echo "My name is Tom" | awk '{$4="Adam"; print $0}'
@@ -48,6 +47,9 @@ jobs:
           #echo " $var"
           echo " ********************************************************************** "
           done
+
+          endWords=($(awk -F/ '{print $5}' diffFile.txt))
+          echo " $endWords"
 
           #awk -F/ '{print $5}' diffFile.txt
 
