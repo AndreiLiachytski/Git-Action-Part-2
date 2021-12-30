@@ -38,7 +38,7 @@ jobs:
           for var in $(cat diffFile.txt)
           do
           endWords=$(echo $var | tr "/" "\n")
-          echo " $endWords[5]"
+          echo " $endWords[4]"
 
 
           #echo "My name is Tom" | awk '{$4="Adam"; print $0}'
@@ -56,7 +56,7 @@ jobs:
             mkdir ~/sfdx
             tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
             export PATH=~/sfdx/bin:$PATH
-          
+
       - name: "Convert to Metadata API format"
         run: |
           PATH=~/sfdx/bin:$PATH
