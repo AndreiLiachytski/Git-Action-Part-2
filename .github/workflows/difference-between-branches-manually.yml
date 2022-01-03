@@ -31,7 +31,6 @@ jobs:
           git diff remotes/origin/${{ github.event.inputs.required_branch }} --name-only > diffFile.txt
 
       - name: "Get Missing Files"
-        shell: bash
         run: |
           chmod +x ./diff_skript/script_for_getting_missing_files.sh
           sh ./diff_skript/script_for_getting_missing_files.sh
