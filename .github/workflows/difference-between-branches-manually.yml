@@ -33,7 +33,7 @@ jobs:
       - name: "Get Missing Files"
         run: |
           chmod +x ./diff_script/script_for_getting_missing_files.sh
-          sh ./diff_script/script_for_getting_missing_files.sh
+          ./diff_script/script_for_getting_missing_files.sh
 
       - name: "Copy source Files"
         run: |
