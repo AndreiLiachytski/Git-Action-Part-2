@@ -21,6 +21,7 @@ public with sharing class B2BCleanUpGuestCartBatchTest {
 
     }
 
+
     @IsTest 
     static void testScheduleExecuteBatch() {
 
