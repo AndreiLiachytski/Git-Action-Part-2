@@ -28,15 +28,7 @@ jobs:
 
       - name: "Get diff file between branches"
         run: |
-
-          #git checkout remotes/origin/${{ github.event.inputs.FLOW_STARTED_ON_BRANCH }}
           git diff remotes/origin/${{ github.event.inputs.required_branch }} --name-only > diffFile.txt
-          git checkout remotes/origin/${{ github.event.inputs.required_branch }}
-          cat diffFile.txt
-          #rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
-
-
-
 
       - name: "Get Missing Files"
         shell: bash
@@ -252,26 +244,19 @@ jobs:
           	resultArray+=("${file_name_pairs_for_unpaired_file_names_from_array__files_from_dir_lwc[@]}")
           fi
 
-          printf "\n%s\n" "resultArray:"
-          for (( i=0; i<${#resultArray[@]}; i++ )); do
-              printf "%s = %s\n" "$i" "${resultArray[i]}";
-          done
+          printf "%s\n" "${resultArray[@]}" > missing_files.txt
 
-
-
-
-
-
-
-
+      - name: "Copy source Files"
+        run: |
+          #rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=missingFiles.txt dataForConverting
+          #git checkout remotes/origin/${{ github.event.inputs.required_branch }}
+          #rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
 
       - name: "Install Salesforce CLI"
         run: |
-
-            printf "\n%s\n" "resultArray:"
-            for (( i=0; i<${#resultArray[@]}; i++ )); do
-                printf "%s = %s\n" "$i" "${resultArray[i]}";
-            done
+            cat diffFile.txt
+            echo "////////////////////////////////"
+            cat missing_files.txt
 
             #wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
             mkdir ~/sfdx
