@@ -39,8 +39,8 @@ jobs:
           for var in $(awk -F/ '{print $5}' diffFile.txt)
           #for var in $(cat diffFile.txt)
           do
-          className = "$var"
-          echo "//////"
+          IFS = '.'
+          read -ra className <<< "$var"
           echo "$className"
           if [[ "$var" == *.cls ]]
             then
