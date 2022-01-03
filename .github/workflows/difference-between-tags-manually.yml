@@ -41,15 +41,10 @@ jobs:
           do
           IFS='.'
           read -ra className <<< "$var"
-          echo "$className"
-          echo "********************************************"
           if [[ "$var" == *.cls ]]
             then
-
                 echo "$var"
-                find -name "$var-meta.xml"
-                #echo $(awk -F/ '{print $5}' "$var")
-                #find -name "*.cls-meta.xml"
+                find -name "$className.cls-meta.xml"
             else
                 echo "false"
           fi
