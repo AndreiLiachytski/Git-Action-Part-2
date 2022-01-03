@@ -38,12 +38,18 @@ jobs:
         run: |
           for var in $(awk -F/ '{print $5}' diffFile.txt)
           #for var in $(cat diffFile.txt)
+
+          IFS = '.'
+          read -a strarr <<< "$var"
+
+          echo "Название книги: $ {strarr [0]} "
+          echo "Имя автора: $ {strarr [1]} "
+          echo "Цена: $ {strarr [ 2]} "
+
           do
           if [[ "$var" == *.cls ]]
             then
                 echo "$var"
-                arrIN=(${"$var"//./ })
-                echo "$arrIN"
                 find -name "$var-meta.xml"
                 #echo $(awk -F/ '{print $5}' "$var")
                 #find -name "*.cls-meta.xml"
