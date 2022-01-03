@@ -42,7 +42,9 @@ jobs:
           if [[ "$var" == *.cls ]]
             then
                 echo "$var"
-                find -name "$var""${{env.CLS-META.XML}}"
+                arrIN=(${"$var"//./ })
+                echo "$arrIN"
+                find -name "$var-meta.xml"
                 #echo $(awk -F/ '{print $5}' "$var")
                 #find -name "*.cls-meta.xml"
             else
