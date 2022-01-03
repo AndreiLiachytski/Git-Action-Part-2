@@ -42,7 +42,7 @@ jobs:
 
           if [[ "$var" == *.cls ]]
             then
-                IFS = '.'
+                IFS='.'
                 read -ra className <<< "$var"
                 echo "$className"
                 echo "********************************************"
