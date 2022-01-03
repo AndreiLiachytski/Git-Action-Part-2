@@ -22,7 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-
       - name: "Checkout source code"
         uses: actions/checkout@v2
         with:
@@ -42,9 +41,9 @@ jobs:
           do
           if [[ "$var" == *.cls ]]
             then
-                echo " $var"
+                echo "$var"
                 #echo $(find -name "$var-meta.xml")
-                find -name "$var-meta.xml"
+                find -name "cls-meta.xml"
             else
                 echo "false"
           fi
