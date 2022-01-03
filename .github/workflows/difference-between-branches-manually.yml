@@ -41,6 +41,7 @@ jobs:
       - name: "Get Missing Files"
         shell: bash
         run: |
+          cat diffFile.txt
           dir_classes_pattern="/force-app/main/default/classes/"
           dir_lwc_pattern="/force-app/main/default/lwc/"
           extension_cls="cls"
@@ -227,6 +228,15 @@ jobs:
           	fi
           done < diffFile.txt
 
+          printf "\n%s\n" "files_from_dir_classes:"
+          for (( i=0; i<${#files_from_dir_classes[@]}; i++ )); do
+            printf "%s = %s\n" "$i" "${files_from_dir_classes[i]}";
+          done
+
+          printf "\n%s\n" "files_from_dir_lwc:"
+          for (( i=0; i<${#files_from_dir_lwc[@]}; i++ )); do
+            printf "%s = %s\n" "$i" "${files_from_dir_lwc[i]}";
+          done
 
           if [ ${#files_from_dir_classes[@]} -gt 0 ]; then
           	delete_paired_file_names_from_array__files_from_dir_classes
