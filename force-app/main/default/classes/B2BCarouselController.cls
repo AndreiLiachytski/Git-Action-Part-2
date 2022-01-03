@@ -5,4 +5,5 @@ public with sharing class B2BCarouselController {
         List<B2BProductController.ProductImage> productImages = B2BProductController.getProductImages(productId, effectiveAccountId);
         return productImages;
     }
+    
 }
