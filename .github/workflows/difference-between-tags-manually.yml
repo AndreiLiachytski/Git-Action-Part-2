@@ -43,7 +43,7 @@ jobs:
             then
                 echo "$var"
                 #echo $(find -name "$var-meta.xml")
-                find -name "cls-meta.xml"
+                find -name "*.cls-meta.xml"
             else
                 echo "false"
           fi
