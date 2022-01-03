@@ -42,16 +42,12 @@ jobs:
           do
           if [[ "$var" == *.cls ]]
             then
-                #IFS='.'
-                #read -ra className <<< "$var"
                 echo " $var"
-                echo $(find -name "$var-meta.xml")
-                #echo $(find -name "B2BFooterV2Controller.cls-meta.xml")
-                #echo "find -name "$className.cls-meta.xml" -or -name "*.css" -type f"
+                #echo $(find -name "$var-meta.xml")
+                find -name "$var-meta.xml"
             else
                 echo "false"
           fi
-          echo " ********************************************************************** "
           done
 
       - name: "Get Missing LWC"
