@@ -1,3 +1,4 @@
+#! /bin/bash
 dir_classes_pattern="force-app/main/default/classes/"
 dir_lwc_pattern="force-app/main/default/lwc/"
 extension_cls="cls"
