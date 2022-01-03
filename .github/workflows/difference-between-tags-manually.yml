@@ -36,9 +36,12 @@ jobs:
       - name: "Get Missing Classes"
         shell: bash
         run: |
-          for var in $(awk -F. '{print $0}' diffFile.txt)
+          for var in $(awk -F/ '{print $5}' diffFile.txt)
           #for var in $(cat diffFile.txt)
           do
+          className = "$var"
+          echo "//////"
+          echo "$className"
           if [[ "$var" == *.cls ]]
             then
                 echo "$var"
