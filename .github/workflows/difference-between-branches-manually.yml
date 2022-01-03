@@ -28,6 +28,8 @@ jobs:
 
       - name: "Get diff file between branches"
         run: |
+
+          git checkout remotes/origin/${{ github.event.inputs.FLOW_STARTED_ON_BRANCH }}
           git diff remotes/origin/${{ github.event.inputs.required_branch }} --name-only > diffFile.txt
           git checkout remotes/origin/${{ github.event.inputs.required_branch }}
           cat diffFile.txt
