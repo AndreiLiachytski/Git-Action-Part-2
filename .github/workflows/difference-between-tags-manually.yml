@@ -43,6 +43,7 @@ jobs:
             then
                 echo "$var"
                 #echo $(find -name "$var-meta.xml")
+                echo $(awk -F/ '{print $5}' "$var")
                 find -name "*.cls-meta.xml"
             else
                 echo "false"
