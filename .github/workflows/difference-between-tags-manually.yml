@@ -39,13 +39,13 @@ jobs:
           for var in $(awk -F/ '{print $5}' diffFile.txt)
           #for var in $(cat diffFile.txt)
           do
-
+          IFS='.'
+          read -ra className <<< "$var"
+          echo "$className"
+          echo "********************************************"
           if [[ "$var" == *.cls ]]
             then
-                IFS='.'
-                read -ra className <<< "$var"
-                echo "$className"
-                echo "********************************************"
+
                 echo "$var"
                 find -name "$var-meta.xml"
                 #echo $(awk -F/ '{print $5}' "$var")
