@@ -36,18 +36,22 @@ jobs:
       - name: "Get Missing Classes"
         shell: bash
         run: |
+          cat > missingClasses.txt
+          tee missingClasses.txt <<<"hello some World"
+          cat > missingClasses.txt
+
+
           for var in $(awk -F/ '{print $5}' diffFile.txt)
-          #for var in $(cat diffFile.txt)
           do
-          IFS='.'
-          read -ra className <<< "$var"
-          if [[ "$var" == *.cls ]]
-            then
-                echo "$var"
-                find -name "$className.cls-meta.xml"
-            else
-                echo "false"
-          fi
+            IFS='.'
+            read -ra className <<< "$var"
+            if [[ "$var" == *.cls ]]
+              then
+                  echo "$var"
+                  find -name "$className.cls-meta.xml"
+              else
+                  echo "false"
+            fi
           done
 
       - name: "Get Missing LWC"
