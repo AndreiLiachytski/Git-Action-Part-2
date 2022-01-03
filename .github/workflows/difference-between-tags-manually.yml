@@ -32,6 +32,7 @@ jobs:
         run: |
           git diff ${{github.event.inputs.first_tag}} ${{github.event.inputs.second_tag}} --name-only > diffFile.txt
           #rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
+          cat diffFile.txt
 
       - name: "Get Missing Classes"
         shell: bash
