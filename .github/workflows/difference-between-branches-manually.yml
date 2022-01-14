@@ -4,21 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       required_branch:
-        description: '(ATTENTION PLEASE, branch on which the workflow is started is compared with the required branch.)Define the REQUIRED BRANCH.'
+        description: '(Branch on which the workflow is started is compared with the required branch.)Define the REQUIRED BRANCH.'
         required: true
-      source_branch:
-        description: 'Define the source branch to get the missing files.(Default value: branch on which the workflow is started.)'
-        default: '${FLOW_STARTED_ON_BRANCH}'
-        required: false
 
 env:
   FLOW_STARTED_ON_BRANCH: ${GITHUB_REF##*/}
-  OUT_FOLDER_NAME: ${{ github.event.inputs.required_branch }}__VS__${GITHUB_REF##*/}
+  OUT_FOLDER_NAME: ${{github.event.inputs.required_branch}}__VS__${GITHUB_REF##*/}
   ABSOLUTE_PATH: ${GITHUB_WORKSPACE}
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
 
       - name: "Checkout source code"
@@ -28,7 +24,7 @@ jobs:
 
       - name: "Get diff file between branches"
         run: |
-          git diff remotes/origin/${{ github.event.inputs.required_branch }} --name-only > diffFile.txt
+          git diff remotes/origin/${{github.event.inputs.required_branch}} --name-only > diffFile.txt
 
       - name: "Get Missing Files"
         run: |
@@ -38,7 +34,7 @@ jobs:
       - name: "Copy source Files"
         run: |
            rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=missing_files.txt dataForConverting
-           git checkout remotes/origin/${{ github.event.inputs.required_branch }}
+           git checkout remotes/origin/${{github.event.inputs.required_branch}}
            rsync -a ${{env.ABSOLUTE_PATH}}/ --files-from=diffFile.txt dataForConverting
 
       - name: "Install Salesforce CLI"
@@ -62,8 +58,8 @@ jobs:
 
       - name: "Push converted data"
         run: |
-          git config --global user.email "${{ secrets.USER_EMAIL}}"
-          git config --global user.name "${{ secrets.USER_NAME}}"
+          git config --global user.email "${{secrets.USER_EMAIL}}"
+          git config --global user.name "${{secrets.USER_NAME}}"
           git add ${{env.ABSOLUTE_PATH}}/out
           git commit -m "`date`"
-          git push origin HEAD:${{ github.event.inputs.required_branch }}
+          git push origin HEAD:${{github.event.inputs.required_branch}}
